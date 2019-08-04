@@ -18,9 +18,7 @@ public class PlayerShip : Ship
     public Stance m_stance = Stance.Roaming;
     
     public GameObject m_targetObject;
-
-    public GameManager m_gameManager;
-    
+  
     // Start is called before the first frame update
     private void Start()
     {
@@ -81,5 +79,10 @@ public class PlayerShip : Ship
         Vector3 targetDir = Vector3.Normalize( m_targetObject.transform.position - pos );
         pos = m_moveSpeed * Time.deltaTime * targetDir;
         gameObject.transform.position = pos;
+    }
+
+    protected override void RemoveFromGameManager()
+    {
+        m_gameManager.m_playerShips.Remove( this );
     }
 }

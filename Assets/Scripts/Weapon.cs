@@ -6,12 +6,14 @@ public class Weapon : MonoBehaviour
 {
     public int m_weaponType;
 
+    public GameObject m_projectilePrefab;
+    
     public int m_range;
     public int m_damage;
     public int m_splashDamage;
     public float m_splashRadius;
 
-    public float m_timer;
+    private float m_timer;
     public float m_fireRate;
     
     
@@ -20,12 +22,20 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_timer = m_fireRate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        m_timer -= Time.deltaTime;
+
+        if( m_timer < 0 )
+        {
+            //TODO:Shooting things
+            
+            
+            m_timer += m_fireRate;
+        }
     }
 }

@@ -15,4 +15,9 @@ public class EnemyShip : Ship
     {
         
     }
+
+    protected override void RemoveFromGameManager()
+    {
+        m_gameManager.m_enemyShips.Remove( this );
+    }
 }

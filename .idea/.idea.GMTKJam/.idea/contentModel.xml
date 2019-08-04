@@ -24,18 +24,19 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="CameraController.cs" t="Include" />
+          <e p="ChangeLayerOrderAfterTime.cs" t="Include" />
           <e p="EnemyShip.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="MeshEdit.cs" t="Include" />
           <e p="PlayerShip.cs" t="Include" />
           <e p="PlayerShipSpawnerSystem.cs" t="Include" />
           <e p="Ship.cs" t="Include" />
+          <e p="ShipyardAnimator.cs" t="Include" />
+          <e p="ShipyardUIRenderer.cs" t="Include" />
           <e p="Singleton.cs" t="Include" />
           <e p="Tileset.cs" t="Include" />
           <e p="Weapon.cs" t="Include" />
         </e>
-        <e p="ShipyardAnimator.cs" t="Include" />
-        <e p="ShipyardUIRenderer.cs" t="Include" />
         <e p="SInput" t="Include">
           <e p="Editor" t="Include">
             <e p="CommonMappingEditor.cs" t="Include" />

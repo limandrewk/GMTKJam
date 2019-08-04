@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5351469893983060625}
   - component: {fileID: 5192318730117482219}
   m_Layer: 0
-  m_Name: BeamWeapon
+  m_Name: WeaponBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_weaponType: 0
-  m_range: 0
-  m_damage: 0
+  m_projectilePrefab: {fileID: 2852691301040941244, guid: 783eb153a1e2b9b41948a4a1b4705235,
+    type: 3}
+  m_range: 1600
+  m_damage: 38
   m_splashDamage: 0
   m_splashRadius: 0
-  m_timer: 0
-  m_fireRate: 0
+  m_fireRate: 15

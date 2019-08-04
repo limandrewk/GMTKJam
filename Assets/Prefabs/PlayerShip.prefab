@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2689471520166028270}
   - component: {fileID: 2689471520166028269}
+  - component: {fileID: 9092123657344679328}
+  - component: {fileID: 2769947541570733864}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2689471520166028268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,3 +82,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9092123657344679328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2689471520166028268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701207b2cdbb72a4f8431ba3927d8c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_gameManager: {fileID: 0}
+  m_moveSpeed: 5
+  m_health: 50
+  m_armour: 0
+  m_stance: 0
+  m_targetObject: {fileID: 0}
+--- !u!114 &2769947541570733864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2689471520166028268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d489567631d19e540bd0595bf5ea98f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_countdown: 5
+  m_newOrderInLayer: 20

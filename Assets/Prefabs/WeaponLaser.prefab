@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4508090660140345386}
   - component: {fileID: 4762060611636533480}
   m_Layer: 0
-  m_Name: LaserWeapon
+  m_Name: WeaponLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_weaponType: 0
-  m_range: 0
-  m_damage: 0
+  m_projectilePrefab: {fileID: 5822604894852791155, guid: 4a1e75279a23de245ab51b4769e6b141,
+    type: 3}
+  m_range: 400
+  m_damage: 17
   m_splashDamage: 0
   m_splashRadius: 0
-  m_timer: 0
-  m_fireRate: 0
+  m_fireRate: 6

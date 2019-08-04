@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1057642455912400143}
   - component: {fileID: 1288714403247015797}
   m_Layer: 0
-  m_Name: ShooterWeapon
+  m_Name: WeaponShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_weaponType: 0
-  m_range: 0
-  m_damage: 0
+  m_projectilePrefab: {fileID: 3902563953885271690, guid: 2e33f3a745be58440a20b9b4a69128a7,
+    type: 3}
+  m_range: 100
+  m_damage: 8
   m_splashDamage: 0
   m_splashRadius: 0
-  m_timer: 0
-  m_fireRate: 0
+  m_fireRate: 2
