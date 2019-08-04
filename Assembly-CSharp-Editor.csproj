@@ -57,18 +57,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\MeshEdit\_EditorCustomMesh.cs" />
-    <Compile Include="Assets\Editor\MeshEdit\_EditorMeshInterface.cs" />
-    <Compile Include="Assets\Editor\MeshEdit\_EditorMeshTools.cs" />
-    <Compile Include="Assets\Editor\MeshEdit\_TilesetImporter.cs" />
-    <Compile Include="Assets\Editor\MeshEdit\_WindowTilesetManager.cs" />
     <Compile Include="Assets\SInput\Editor\CommonMappingEditor.cs" />
     <Compile Include="Assets\SInput\Editor\ControlSchemeEditor.cs" />
     <Compile Include="Assets\SInput\Editor\RebindMenuSettingsEditor.cs" />
     <Compile Include="Assets\SInput\Editor\SinputEditorMenus.cs" />
     <Compile Include="Assets\SInput\Editor\SinputTouchEditors.cs" />
     <Compile Include="Assets\SInput\Editor\StandaloneSinputModuleEditor.cs" />
-    <None Include="Assets\Editor\MeshEdit\Mesh Edit Settings.txt" />
     <None Include="Assets\Editor\EditorResources\Tilesets\CloudyTemple.xml" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>D:/UnityProjects/GMTKJam/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>

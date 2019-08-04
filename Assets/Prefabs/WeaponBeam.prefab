@@ -43,11 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253bd5d93bbc924469ec0035b13fba8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_gameManager: {fileID: 0}
   m_weaponType: 0
-  m_projectilePrefab: {fileID: 2852691301040941244, guid: 783eb153a1e2b9b41948a4a1b4705235,
+  m_projectilePrefab: {fileID: 8847960952866578874, guid: 783eb153a1e2b9b41948a4a1b4705235,
     type: 3}
-  m_range: 1600
+  m_range: 12100
   m_damage: 38
   m_splashDamage: 0
   m_splashRadius: 0
   m_fireRate: 15
+  m_target: {fileID: 0}
+  m_hitOffset: {x: 0, y: 0, z: 0}
+  m_owner: 0

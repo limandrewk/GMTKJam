@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 256731304733478803}
   - component: {fileID: 5571051768419290603}
+  - component: {fileID: 4426387767409195227}
+  - component: {fileID: 5702880368032513620}
   m_Layer: 0
   m_Name: RedLaser
   m_TagString: Untagged
@@ -68,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 5c8aae24dd61eee4d86cebd7eb478b7a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -80,3 +82,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4426387767409195227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822604894852791155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d489567631d19e540bd0595bf5ea98f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_countdown: 0.5
+  m_newOrderInLayer: 30
+--- !u!114 &5702880368032513620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5822604894852791155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe5261f933d4ee40ba6fc4d1ff0a36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_targetObject: {fileID: 0}
+  m_offset: {x: 0, y: 0, z: 0}
+  m_speed: 80
+  m_explosionPrefab: {fileID: 0}

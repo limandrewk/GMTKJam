@@ -4,30 +4,20 @@ using UnityEngine;
 
 public class PlayerShip : Ship
 {
-    public enum Stance
-    {
-        Roaming,
-        Defensive
-    };
-
-    private float m_defensiveRangeSq = 3600f;
-    private float m_targetingRangeSq = 400f;
-
-    private float m_targetingRangeSqFudge = 0f;
-
-    public Stance m_stance = Stance.Roaming;
+    public Vector3 m_restLocation;
     
-    public GameObject m_targetObject;
-  
     // Start is called before the first frame update
     private void Start()
     {
-        m_targetingRangeSqFudge = Random.Range( 0, 40f );
+        m_targetingRangeSqFudge = Random.Range( 0, 400f );
+        m_restLocation = Random.insideUnitCircle * 40;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        CheckForDeath();
+
         float distSq;
         Vector3 pos = gameObject.transform.position;
         if( m_stance == Stance.Defensive && m_targetObject )
@@ -36,7 +26,7 @@ public class PlayerShip : Ship
             if( distSq > m_defensiveRangeSq ) m_targetObject = null;
         }
 
-        if( !m_targetObject )
+        if( m_targetObject == null )
         {
             float minDistSq = -1;
             EnemyShip potentialTarget = null;
@@ -66,20 +56,51 @@ public class PlayerShip : Ship
                 m_targetObject = potentialTarget.gameObject;
             }
         }
-        
-        if( m_targetObject == null ) return;
 
-        
-        distSq = Vector3.SqrMagnitude( m_targetObject.transform.position - pos );
-        // Close enough
-        if( distSq < m_targetingRangeSq - m_targetingRangeSqFudge ) return;
-        
-        // Move closer to target
+        if( m_targetObject == null )
+        {
+            Vector3 targetDir = m_restLocation - pos;
+            distSq = Vector3.SqrMagnitude( targetDir );
+            targetDir = Vector3.Normalize( targetDir );
 
-        Vector3 targetDir = Vector3.Normalize( m_targetObject.transform.position - pos );
-        pos = m_moveSpeed * Time.deltaTime * targetDir;
-        gameObject.transform.position = pos;
+            // Rotate to target
+            float step = m_rotationSpeed * Time.deltaTime;
+        
+            var angle = Mathf.Atan2( targetDir.y, targetDir.x ) * Mathf.Rad2Deg + 90;
+            Quaternion targetRotation = Quaternion.AngleAxis( angle, Vector3.forward );
+            transform.rotation = Quaternion.Slerp( transform.rotation, targetRotation, step );
+
+            // Close enough
+            if( distSq < 1f ) return;
+
+            // Move closer to target
+
+            pos += m_moveSpeed * Time.deltaTime * targetDir;
+            transform.position = pos;
+        }
+        else
+        {
+            Vector3 targetDir = m_targetObject.transform.position - pos;
+            distSq = Vector3.SqrMagnitude( targetDir );
+            targetDir = Vector3.Normalize( targetDir );
+
+            // Rotate to target
+            float step = m_rotationSpeed * Time.deltaTime;
+        
+            var angle = Mathf.Atan2( targetDir.y, targetDir.x ) * Mathf.Rad2Deg + 90;
+            Quaternion targetRotation = Quaternion.AngleAxis( angle, Vector3.forward );
+            transform.rotation = Quaternion.Slerp( transform.rotation, targetRotation, step );
+
+            // Close enough
+            if( distSq < m_targetingRangeSq - m_targetingRangeSqFudge ) return;
+
+            // Move closer to target
+
+            pos += m_moveSpeed * Time.deltaTime * targetDir;
+            transform.position = pos;
+        }
     }
+        
 
     protected override void RemoveFromGameManager()
     {

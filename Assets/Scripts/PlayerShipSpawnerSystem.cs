@@ -67,30 +67,43 @@ public class PlayerShipSpawnerSystem : MonoBehaviour
     
     public void SpawnShip()
     {
-        PlayerShip newShip = Instantiate( m_shipBase );
+        PlayerShip newShip = Instantiate( m_shipBase, Vector3.zero, Quaternion.identity );
         newShip.m_health += m_spawnerHull * 10;
         newShip.m_armour = m_spawnerArmour;
         newShip.m_moveSpeed += m_spawnerSpeed;
 
         newShip.m_gameManager = m_gameManager;
-        
-        for( int i = 0; i < m_spawnerLasers; ++i )
+
+        int lasers = m_spawnerLasers + 1;
+        for( int i = 0; i < lasers; ++i )
         {
             Vector3 offset = new Vector3( Random.Range( -1f, 1f ), Random.Range( -1f, 1f ), 0 );
-            Instantiate( m_laserWeaponPrefab, offset, Quaternion.identity, transform );
+            Weapon weapon = Instantiate( m_laserWeaponPrefab, offset, Quaternion.identity, newShip.transform );
+            weapon.m_gameManager = m_gameManager;
         }
         
         for( int i = 0; i < m_spawnerShooters; ++i )
         {
             Vector3 offset = new Vector3( Random.Range( -1f, 1f ), Random.Range( -1f, 1f ), 0 );
-            Instantiate( m_shooterWeaponPrefab, offset, Quaternion.identity, transform );
+            Weapon weapon = Instantiate( m_shooterWeaponPrefab, offset, Quaternion.identity, newShip.transform );
+            weapon.m_gameManager = m_gameManager;
         }
         
         for( int i = 0; i < m_spawnerBeams; ++i )
         {
             Vector3 offset = new Vector3( Random.Range( -1f, 1f ), Random.Range( -1f, 1f ), 0 );
-            Instantiate( m_beamWeaponPrefab, offset, Quaternion.identity, transform );
+            Weapon weapon = Instantiate( m_beamWeaponPrefab, offset, Quaternion.identity, newShip.transform );
+            weapon.m_gameManager = m_gameManager;
         }
+
+        if( m_spawnerShooters > lasers && m_spawnerShooters > m_spawnerBeams )
+            newShip.m_targetingRangeSq = m_shooterWeaponPrefab.m_range;
+        else if( m_spawnerBeams > lasers && m_spawnerBeams > m_spawnerShooters )
+            newShip.m_targetingRangeSq = m_beamWeaponPrefab.m_range;
+        else
+            newShip.m_targetingRangeSq = m_laserWeaponPrefab.m_range;
+
+        m_gameManager.m_playerShips.Add( newShip );
         
     }
 }

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SceneManagement;
-using UnityEngine;
-using UnityEngine.Experimental.XR;
+﻿using UnityEngine;
 
 [RequireComponent( typeof(SpriteRenderer) )]
 public class ChangeLayerOrderAfterTime : MonoBehaviour

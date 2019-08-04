@@ -8,6 +8,9 @@ public class CameraController : MonoBehaviour
     public float m_moveSensitivity = 1;
 
     public float m_zoomSensitivity = 1;
+    public float m_cameraBounds = 150;
+    
+    
     // Start is called before the first frame update
     private void Start()
     {
@@ -20,7 +23,7 @@ public class CameraController : MonoBehaviour
         if( m_pauseMenu != null && m_pauseMenu.isActiveAndEnabled ) return;
 
         float deltaTime = Time.deltaTime;
-        Vector3 pos = gameObject.transform.position;
+        Vector3 pos = transform.position;
         float cameraSize = m_camera.orthographicSize;
         
         if( Sinput.GetButtonRaw( "Left" ) )
@@ -49,10 +52,10 @@ public class CameraController : MonoBehaviour
         }
 
         cameraSize = Mathf.Clamp( cameraSize, 10, 75 );
-        pos.x = Mathf.Clamp( pos.x, -100 + cameraSize, 100 - cameraSize );
-        pos.y = Mathf.Clamp( pos.y, -100 + cameraSize, 100 - cameraSize );
+        pos.x = Mathf.Clamp( pos.x, -m_cameraBounds + cameraSize, m_cameraBounds - cameraSize );
+        pos.y = Mathf.Clamp( pos.y, -m_cameraBounds + cameraSize, m_cameraBounds - cameraSize );
 
-        gameObject.transform.position = pos;
+        transform.position = pos;
         m_camera.orthographicSize = cameraSize;
     }
 }

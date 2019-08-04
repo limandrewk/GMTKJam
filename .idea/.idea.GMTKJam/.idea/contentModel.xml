@@ -13,23 +13,19 @@
               <e p="CloudyTemple.xml" t="Include" />
             </e>
           </e>
-          <e p="MeshEdit" t="Include">
-            <e p="_EditorCustomMesh.cs" t="Include" />
-            <e p="_EditorMeshInterface.cs" t="Include" />
-            <e p="_EditorMeshTools.cs" t="Include" />
-            <e p="_TilesetImporter.cs" t="Include" />
-            <e p="_WindowTilesetManager.cs" t="Include" />
-            <e p="Mesh Edit Settings.txt" t="Include" />
-          </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AsteroidBase.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
           <e p="ChangeLayerOrderAfterTime.cs" t="Include" />
           <e p="EnemyShip.cs" t="Include" />
+          <e p="EnemyShipSpawnerSystem.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
+          <e p="LoadScene.cs" t="Include" />
           <e p="MeshEdit.cs" t="Include" />
           <e p="PlayerShip.cs" t="Include" />
           <e p="PlayerShipSpawnerSystem.cs" t="Include" />
+          <e p="Projectile.cs" t="Include" />
           <e p="Ship.cs" t="Include" />
           <e p="ShipyardAnimator.cs" t="Include" />
           <e p="ShipyardUIRenderer.cs" t="Include" />

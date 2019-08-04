@@ -95,11 +95,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_gameManager: {fileID: 0}
+  m_rotationSpeed: 0.3
   m_moveSpeed: 5
   m_health: 50
   m_armour: 0
+  m_defensiveRangeSq: 22500
+  m_targetingRangeSq: 8100
   m_stance: 0
   m_targetObject: {fileID: 0}
+  m_explosionPrefab: {fileID: 0}
+  m_restLocation: {x: 0, y: 0, z: 0}
 --- !u!114 &2769947541570733864
 MonoBehaviour:
   m_ObjectHideFlags: 0

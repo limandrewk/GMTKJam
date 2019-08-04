@@ -43,11 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253bd5d93bbc924469ec0035b13fba8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_gameManager: {fileID: 0}
+  m_enemyShip: {fileID: 0}
   m_weaponType: 0
-  m_projectilePrefab: {fileID: 5822604894852791155, guid: 4a1e75279a23de245ab51b4769e6b141,
+  m_projectilePrefab: {fileID: 5702880368032513620, guid: 4a1e75279a23de245ab51b4769e6b141,
     type: 3}
-  m_range: 400
+  m_range: 3600
   m_damage: 17
   m_splashDamage: 0
   m_splashRadius: 0
   m_fireRate: 6
+  m_target: {fileID: 0}
+  m_hitOffset: {x: 0, y: 0, z: 0}
+  m_owner: 0

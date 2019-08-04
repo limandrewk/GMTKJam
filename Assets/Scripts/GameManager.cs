@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent( typeof(PlayerShipSpawnerSystem) )]
 public class GameManager : MonoBehaviour
@@ -12,11 +13,13 @@ public class GameManager : MonoBehaviour
     public float m_timer = 1.0f;
 
     public PlayerShipSpawnerSystem m_playerShipSpawner;
+    public EnemyShipSpawnerSystem m_enemyShipSpawner;
 
     public List<EnemyShip> m_enemyShips;
     public List<PlayerShip> m_playerShips;
     
     public TMP_Text m_resourcesText;
+    public TMP_Text m_nextWaveText;
 
     public Canvas m_baseUpgradesCanvas;
     public Canvas m_shipyardCanvas;
@@ -29,6 +32,8 @@ public class GameManager : MonoBehaviour
     public int m_shipyardHull;
     public int m_shipyardArmour;
     public int m_shipyardSpeed;
+
+    public AsteroidBase m_base;
     
     private void Start()
     {
@@ -53,12 +58,17 @@ public class GameManager : MonoBehaviour
 
         while( m_resources >= m_playerShipSpawner.m_shipCost )
         {
-            //m_playerShipSpawner.SpawnShip();
+            m_playerShipSpawner.SpawnShip();
 
             m_resources -= m_playerShipSpawner.m_shipCost;
         }
         
         m_resourcesText.text = m_resources.ToString();
+        m_nextWaveText.text = Mathf.FloorToInt(m_enemyShipSpawner.m_timer).ToString();
+        
+        if( m_enemyShipSpawner.m_waves.Count == 0 && m_enemyShips.Count == 0 )
+            SceneManager.LoadScene( "Victory", LoadSceneMode.Single);
+
     }
 
     
